@@ -40,3 +40,24 @@ let a = 1; // a is 1 inside of this block
 }
 // a is still 100 here 
 ```
+
+3. You define functions using the `function` keyword. Similar to Python, you don't need to declare variable types for the parameters. You can create and define objects like this: 
+```bash
+const building = {
+  owner: "Johnson",
+  height: 125,
+  cost: 125000,
+  color: "grey"
+};
+```
+- JavaScript objects use name-value pairs, and each of these elements are called properties. You can access an object's property via `building.owner` or `building[cost]`. You can also define methods inside of the object. 
+
+```bash
+const building = {
+  owner: "Johnson",
+  height: 125,
+  cost: 125000,
+  getComponentCost : function() {
+    return cost / height;
+  }
+};
