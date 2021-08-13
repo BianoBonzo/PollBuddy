@@ -61,3 +61,42 @@ const building = {
     return cost / height;
   }
 };
+```
+
+4. In JavaScript, you can add integers and Strings together to make new Strings similar to Java. Some of the more unique and interesting methods you can use in JavaScript are `toFixed()`, which rounds a decimal number to a specific digit, and `Number()`, which can covert other JavaScript variables to numbers. 
+- Arrays can be initialized like this: 
+```bash
+const food = [
+  "Burger",
+  "Apple",
+  "Rice"
+];
+```
+- Alternatively, you can initialize an array with one line:
+```bash
+const food = new Array("Burger", "Apple", "Rice");
+```
+- You add elements to the end of the array via `array.push()`. You can remove the last element of an array using `array.pop()`. Furthermore, you can remove the first element of an array with `array.shift()`. With an array of strings, you can join all of the elements together into one string with another String using `array.join()`.
+```bash
+food.join(" - ");
+# Result -> "Burger - Apple - Rice"
+```
+- JavaScript has a few convenient methods for changing the order of elements in an array. The basic methods are `array.sort()` and `array.reverse()`, which reverses the elements of the array. You can also define your own sorting criterion by creating a new function inside of the sort method parameter: 
+```bash
+const nums = [76, 80, 14, 3, -7, 203];
+nums.sort(function(a, b){return a - b});
+```
+5. `Date` objects allow a browser to display time. Below are three different ways to create `Date` objects
+```bash
+new Date()
+new Date(year, month, day, hours, minutes, seconds, milliseconds)
+new Date(milliseconds)
+new Date(date string)
+```
+- The most common way is the second method. You can change the number of parameters to determine how you want to format the time for the object. There are multiple different formats for dates. One is the ISO format, such as `2017-07-14`. Another format is Short Date, which uses slashes like `2013/11/28`. The final format is Long Date, written like `Mar 12 2024`. You can use `Date.parse()` to convert the time between a date string and January 1, 1970 to milliseconds. You can then use the milliseconds to covert it into a `Date` object. 
+
+```bash
+let msecs = Date.parse("December 19, 2019");
+const d = new Date(msecs);
+document.getElementById("front").innerHTML = d;
+```
