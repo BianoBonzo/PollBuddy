@@ -100,3 +100,42 @@ let msecs = Date.parse("December 19, 2019");
 const d = new Date(msecs);
 document.getElementById("front").innerHTML = d;
 ```
+
+6. You can use parentheses to determine whether an expression is true or false, such as `(5 < 10)`. Every value that's not a boolean expression is false. For instance:  
+```bash
+let x = "";
+Boolean(x);       # False
+let y = 0;
+Boolean(y);       # False
+```
+- You can create boolean objects using the `new` keyword, such as `let x = new Boolean(true);` JavaScript also contains conditional statements, where you can set the value of a variable depending on a certain condition: 
+
+```bash
+let foo = (x < 10) ? "Less Than" : "Greater Than";
+```
+7. You can get the data type of a variable using the `typeof` keyword. The data types are returned as Strings. It's important to note the data types of more complex elements in JavaScript. For instance, NaN is a number. The data type of arrays, dates, and nulls are objects. Furthermore, an `undefined` data type exists for undefined variables. 
+
+- JavaScript contains a unary + operator that can convert variables to different data types. For instance: 
+
+```bash
+let g = "100";      # y is a string
+let h = + g;        # h is now a number
+let s = "John";     # s is a string
+let t = + s;        # x is now a number (NaN)
+```
+- You can convert booleans to numbers. `Number(false)` returns 0 while `Number(true)` returns 1. When you output a variable, JavaScript automatically calls the variable's `toString()` method.
+
+8.  JavaScript contains `try`, `catch`, and `finally` blocks similar to Java. There a couple of common errors in JavaScript to look out for and deal with. For instance, the `RangeError` if a number is used outside of its legal values. For instance, if you declare a number with only two digits, you cannot set the number of digits of the variable to 100. 
+
+```bash
+let foo = 12;
+try {
+  foo.toPrecision(100);  
+}
+catch(err) {
+  doc.getElementById("error").innerHTML = err.name;
+}
+```
+- A `ReferenceError` occurs when an unknown reference to a variable that doesn't exist is used. `SyntaxError` occurs when improper JavaScript syntax exists in the source code. `TypeError` occurs when you use an operator or method on a variable that is the incorrect data type. 
+
+## React
