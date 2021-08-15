@@ -139,3 +139,85 @@ catch(err) {
 - A `ReferenceError` occurs when an unknown reference to a variable that doesn't exist is used. `SyntaxError` occurs when improper JavaScript syntax exists in the source code. `TypeError` occurs when you use an operator or method on a variable that is the incorrect data type. 
 
 ## React
+1. Reacts uses a syntax extension for JavaScript code called `JSX`, which looks similar to HTML. Units are called `JSX elements`. These are essentially HTML code snippets that are placed inside of JavaScript files. An example is `<p>Hello world</p>`. These elements can be stored as variables. For instance, JSX elements can be stored as fields of an object. 
+
+```bash
+const drinks = {
+  carbonated: <li>Pepsi</li>,
+  sweet: <li>Apple Juice</li>,
+  sour: <li>Lemonade</li>,
+  bitter: <li>Coffee</li>,
+  salty: <li>River</li>
+};
+```
+- JSX elements can have attributes, similar to HTML. These attributes are defined within the symbols in the HTML syntax. 
+
+```bash
+const p1 = <p id='large'>foo</p>
+const p2 = <p id='small'>bar</p>
+```
+- JSX elements can be nested inside of other JSX elements 
+
+```bash
+const myDiv = (
+  <div>
+    <h1>
+      Hello world
+    </h1>
+  </div>
+);
+```
+- You render JSX expressions using the built in `ReactDOM` JavaScript library. You use `ReactDOM.render()`, where the first argument is a JSX expression and the second argument is a JSX element that serves as a container for the first argument. Below is an example where you can put two lines of text on an HTML page with an HTML element with the id `app`
+
+```bash
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const myText = (
+  <ul>
+    <li>This is</li>
+    <li>the Beginning!</li>  
+  </ul>
+);
+
+ReactDOM.render(
+  myText, 
+  document.getElementById('app')
+); 
+```
+
+2. `class` is still a keyword in JavaScript, so you can't use that word as an attribute in React. There are certain self-closing tags in HTML, where you need cannot leave out a forward slash in React source code. For instance, `<img>` and `<br>` are not acceptable in JSX. Instead, you do `<img />` and `<br />`.
+
+- To do an arithmetic operation in a JSX element, you have to use curly braces for an HTML page to show the proper result. For instance, in the code snippet below, without the curly braces, the HTML page will show `2 + 3`. With the curly braces, it shows `5` instead. 
+
+```bash
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  <h1>{2 + 3}</h1>,
+  document.getElementById('app')
+);
+```
+- You can also use the curly braces to call JavaScript variables or JavaScript functions in React code, such as in the first argument of `ReactDOM.render()` or attribute values. JSX also has the conditional operator `?`
+
+```bash
+const img = <img src={pics[coinToss() === 'heads' ? 'kitty' : 'doggy']} />;
+```
+- You can use the `&&` operator and brackets to ensure that an element only appears if a certain condition is true, such as `{ !fullStomach && <li>Pickle Jar</li>}`. Furthermore, React has an array `.map()` method that allows you to create a list of JSX elements. 
+```bash
+const classmates = ['Jason', 'Grant', 'Tony'];
+
+const classList = classmates.map(classmate =>
+  <li>{classmate}</li>
+);
+```
+
+- You can also give unique keys to each JSX element like this: 
+```bash
+const const classmates = ['Jason', 'Grant', 'Tony'];
+
+const classList = classmates.map((classmate, i) =>
+  <li key={'classmate_' + i}>{classmate}</li>
+);
+```
